@@ -4,11 +4,18 @@
 
 package com.example.cakefactory.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * @author jose
  */
-
+@Entity
 public class Pastry {
+    @Id
+    @GeneratedValue
     private long id;
     private String name;
     private String image;

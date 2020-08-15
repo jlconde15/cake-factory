@@ -1,5 +1,6 @@
 package com.example.cakefactory.controller;
 
+import com.example.cakefactory.repository.PastryRepository;
 import com.example.cakefactory.service.PastryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,9 +20,12 @@ public class IndexController  {
     @Autowired
     private PastryService pastryService;
 
+    @Autowired
+    private PastryRepository pastryRepository;
+
     @GetMapping("/")
     public ModelAndView index(Map<String, Object> model) {
-        model.put("pastries", pastryService.findAll());
+        model.put("pastries", pastryRepository.findAll());
         return new ModelAndView("index", model);
     }
 }
